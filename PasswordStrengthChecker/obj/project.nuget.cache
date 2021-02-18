@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iCyWSQ7YSVJpvZZmHVYIpmdr8Aq29UmXl6Ow9BGfOIUJkvzog7CKsaCzihyjZjTbeo6d92LqZSUBZ/dzYmHfiQ==",
+  "dgSpecHash": "ON6ehYEraJ620AcYKQWW1c8vCSNNSfr4k+rbXswhTVYpbgh1mzyXIE+a9Nwuo5hk0l3TGZtcL4pzGv7rFYPdyw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rich\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj",
+  "projectFilePath": "C:\\Users\\RichW\\Desktop\\Projects\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

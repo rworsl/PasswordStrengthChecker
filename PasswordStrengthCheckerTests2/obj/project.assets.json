@@ -5733,23 +5733,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rich\\.nuget\\packages\\": {},
+    "C:\\Users\\RichW\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rich\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthCheckerTests2\\PasswordStrengthCheckerTests2.csproj",
+      "projectUniqueName": "C:\\Users\\RichW\\Desktop\\Projects\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthCheckerTests2\\PasswordStrengthCheckerTests2.csproj",
       "projectName": "PasswordStrengthCheckerTests2",
-      "projectPath": "C:\\Users\\Rich\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthCheckerTests2\\PasswordStrengthCheckerTests2.csproj",
-      "packagesPath": "C:\\Users\\Rich\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rich\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthCheckerTests2\\obj\\",
+      "projectPath": "C:\\Users\\RichW\\Desktop\\Projects\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthCheckerTests2\\PasswordStrengthCheckerTests2.csproj",
+      "packagesPath": "C:\\Users\\RichW\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\RichW\\Desktop\\Projects\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthCheckerTests2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\RichW\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5764,8 +5764,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Rich\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj": {
-              "projectPath": "C:\\Users\\Rich\\source\\repos\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj"
+            "C:\\Users\\RichW\\Desktop\\Projects\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj": {
+              "projectPath": "C:\\Users\\RichW\\Desktop\\Projects\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker\\PasswordStrengthChecker.csproj"
             }
           }
         }
