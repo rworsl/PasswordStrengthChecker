@@ -98,5 +98,35 @@ namespace PasswordStrengthChecker.Tests
             Assert.AreEqual(5, test2);
             Assert.AreEqual(0, test3);
         }
+
+        [TestMethod()]
+        public void onlyNumbersTest()
+        {
+            var Program = new Program();
+            var test1 = Program.onlyNumbers("@1@dgsg!£34$%%fsd@1@");
+            var test2 = Program.onlyNumbers("aBcDe");
+            var test3 = Program.onlyNumbers("!!");
+            var test4 = Program.onlyNumbers("161513");
+
+            Assert.AreEqual(0, test1);
+            Assert.AreEqual(0, test2);
+            Assert.AreEqual(0, test3);
+            Assert.AreEqual(6, test4);
+        }
+
+        [TestMethod()]
+        public void checkRepeatCharactersTest()
+        {
+            var Program = new Program();
+            var test1 = Program.checkRepeatCharacters("aabbaabbaaba");
+            var test2 = Program.checkRepeatCharacters("aBcDe");
+            var test3 = Program.checkRepeatCharacters("!!");
+            var test4 = Program.checkRepeatCharacters("161513");
+
+            Assert.AreEqual(12, test1);
+            Assert.AreEqual(0, test2);
+            Assert.AreEqual(2, test3);
+            Assert.AreEqual(3, test4);
+        }
     }
 }

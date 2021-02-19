@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PasswordStrengthChecker
 {
@@ -124,7 +125,7 @@ namespace PasswordStrengthChecker
 
         public int onlyLetters(string password)
         {
-            if ((CountUppercaseLetters(password) + CountLowercaseLetters(password)) == password.Length)
+            if (((CountUppercaseLetters(password) / 2) + (CountLowercaseLetters(password) / 2)) == password.Length)
             {
                 return password.Length;
             }
@@ -136,7 +137,7 @@ namespace PasswordStrengthChecker
 
         public int onlyNumbers(string password)
         {
-            if (CountNumbers(password) == password.Length)
+            if ((CountNumbers(password) / 4) == password.Length)
             {
                 return password.Length;
             }
@@ -145,5 +146,37 @@ namespace PasswordStrengthChecker
                 return 0;
             }
         }
+
+        public int checkRepeatCharacters(string password)
+        {
+            HashSet<char> noDupes = new HashSet<char>();
+            
+            foreach(char i in password)
+            {
+                noDupes.Add(i);
+            }
+
+            var itemCount = (password.Length - noDupes.Count);
+
+            return itemCount * 2;
+        }
+
+
+        /*
+        Repeat Characters (Case Insensitive)	Comp	-	
+
+        Consecutive Uppercase Letters	Flat	-(n*2)	
+
+        Consecutive Lowercase Letters	Flat	-(n*2)	
+
+        Consecutive Numbers	Flat	-(n*2)	
+
+        Sequential Letters (3+)	Flat	-(n*3)	
+
+        Sequential Numbers (3+)	Flat	-(n*3)	
+
+        Sequential Symbols (3+)
+        */
+
     }
 }
