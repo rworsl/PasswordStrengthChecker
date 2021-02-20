@@ -122,11 +122,71 @@ namespace PasswordStrengthChecker.Tests
             var test2 = Program.checkRepeatCharacters("aBcDe");
             var test3 = Program.checkRepeatCharacters("!!");
             var test4 = Program.checkRepeatCharacters("161513");
+            var test5 = Program.checkRepeatCharacters("a");
+            var test6 = Program.checkRepeatCharacters("aaaaaaa");
+            var test7 = Program.checkRepeatCharacters("@£@!£££");
+            var test8 = Program.checkRepeatCharacters("");
 
-            Assert.AreEqual(12, test1);
+
+            Assert.AreEqual(24, test1);
             Assert.AreEqual(0, test2);
-            Assert.AreEqual(2, test3);
-            Assert.AreEqual(3, test4);
+            Assert.AreEqual(4, test3);
+            Assert.AreEqual(6, test4);
+            Assert.AreEqual(0, test5);
+            Assert.AreEqual(14, test6);
+            Assert.AreEqual(12, test7);
+            Assert.AreEqual(0, test8);
+        }
+
+        [TestMethod()]
+        public void ConsecutiveUpperLettersTest()
+        {
+            var Program = new Program();
+            var test1 = Program.ConsecutiveUpperLetters("aBcDe");
+            var test2 = Program.ConsecutiveUpperLetters("aabbbbbaabbaaba");
+            var test3 = Program.ConsecutiveUpperLetters("!!");
+            var test4 = Program.ConsecutiveUpperLetters("161513");
+            var test5 = Program.ConsecutiveUpperLetters("aBCDe");
+
+            Assert.AreEqual(0, test1);
+            Assert.AreEqual(0, test2);
+            Assert.AreEqual(0, test3);
+            Assert.AreEqual(0, test4);
+            Assert.AreEqual(4, test5);
+        }
+
+        [TestMethod()]
+        public void ConsecutiveNumbersTest()
+        {
+            var Program = new Program();
+            var test1 = Program.ConsecutiveNumbers("aBcDe");
+            var test2 = Program.ConsecutiveNumbers("aab22bbaabbaaba");
+            var test3 = Program.ConsecutiveNumbers("!!");
+            var test4 = Program.ConsecutiveNumbers("161513");
+            var test5 = Program.ConsecutiveNumbers("aBCDe");
+
+            Assert.AreEqual(0, test1);
+            Assert.AreEqual(2, test2);
+            Assert.AreEqual(0, test3);
+            Assert.AreEqual(10, test4);
+            Assert.AreEqual(0, test5);
+        }
+
+        [TestMethod()]
+        public void ConsecutiveLowerLettersTest()
+        {
+            var Program = new Program();
+            var test1 = Program.ConsecutiveLowerLetters("aBcDe");
+            var test2 = Program.ConsecutiveLowerLetters("aab22bbaabbaaba");
+            var test3 = Program.ConsecutiveLowerLetters("!!");
+            var test4 = Program.ConsecutiveLowerLetters("161513");
+            var test5 = Program.ConsecutiveLowerLetters("ae");
+
+            Assert.AreEqual(0, test1);
+            Assert.AreEqual(22, test2);
+            Assert.AreEqual(0, test3);
+            Assert.AreEqual(0, test4);
+            Assert.AreEqual(2, test5);
         }
     }
 }

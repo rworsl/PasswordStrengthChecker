@@ -149,34 +149,84 @@ namespace PasswordStrengthChecker
 
         public int checkRepeatCharacters(string password)
         {
-            HashSet<char> noDupes = new HashSet<char>();
-            
-            foreach(char i in password)
+            int itemCount = 0;
+            List<char> empty = new List<char>();
+
+            var letters = password.ToCharArray();
+
+            foreach (char i in password)
             {
-                noDupes.Add(i);
+                var counter = 0;
+                foreach (char j in letters)
+                {
+                    if (i == j)
+                    {
+                        counter += 1;
+                    }
+                }
+                if (counter > 1)
+                {
+                    empty.Add(i);
+                }
             }
 
-            var itemCount = (password.Length - noDupes.Count);
+            itemCount = empty.Count;
 
             return itemCount * 2;
         }
 
+        public int ConsecutiveUpperLetters(string password)
+        {
+            int dupes = 0;
+            for (int i = 0; i < password.Length - 1; i++)
+            {
+                if ((Char.IsUpper(password[i + 1])) && (Char.IsUpper(password[i]) == true))
+                {
+                    dupes += 1;
+                }
+            }
+            return dupes * 2;
+        }
 
-        /*
-        Repeat Characters (Case Insensitive)	Comp	-	
+        public int ConsecutiveLowerLetters(string password)
+        {
+            int dupes = 0;
+            for (int i = 0; i < password.Length - 1; i++)
+            {
+                if ((Char.IsLower(password[i + 1])) && (Char.IsLower(password[i]) == true))
+                {
+                    dupes += 1;
+                }
+            }
+            return dupes * 2;
+        }
 
-        Consecutive Uppercase Letters	Flat	-(n*2)	
-
-        Consecutive Lowercase Letters	Flat	-(n*2)	
-
-        Consecutive Numbers	Flat	-(n*2)	
-
-        Sequential Letters (3+)	Flat	-(n*3)	
-
-        Sequential Numbers (3+)	Flat	-(n*3)	
-
-        Sequential Symbols (3+)
-        */
+        public int ConsecutiveNumbers(string password)
+        {
+            int dupes = 0;
+            for (int i = 0; i < password.Length - 1; i++)
+            {
+                if ((Char.IsDigit(password[i + 1])) && (Char.IsDigit(password[i]) == true))
+                {
+                    dupes += 1;
+                }
+            }
+            return dupes * 2;
+        }
 
     }
 }
+    /*
+    Consecutive Uppercase Letters	Flat	-(n*2)	
+
+    Consecutive Lowercase Letters	Flat	-(n*2)	
+
+    Consecutive Numbers	Flat	-(n*2)	
+
+    Sequential Letters (3+)	Flat	-(n*3)	
+
+    Sequential Numbers (3+)	Flat	-(n*3)	
+
+    Sequential Symbols (3+)
+    */
+
