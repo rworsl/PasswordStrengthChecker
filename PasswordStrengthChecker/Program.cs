@@ -214,6 +214,26 @@ namespace PasswordStrengthChecker
             return dupes * 2;
         }
 
+
+        public int SequentialLetters(string password)
+        {
+            int dupes = 0;
+            if(password.Length < 2)
+            {
+                return 0;
+            }
+
+            //work out ascii value of each letter and increment it to check the next
+            for (int i = 0; i < password.Length - 1; i++)
+            {
+                if ((Char.IsDigit(password[i + 1])) && (Char.IsDigit(password[i]) == true))
+                {
+                    dupes += 1;
+                }
+            }
+            return dupes * 2;
+        }
+
     }
 }
     /*
