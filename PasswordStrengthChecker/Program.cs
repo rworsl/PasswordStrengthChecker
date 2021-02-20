@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace PasswordStrengthChecker
 {
@@ -7,16 +8,31 @@ namespace PasswordStrengthChecker
     {
         int strengthScore = 0;
 
-        string Password1 = "sdadafsdyhgasgdfqw";
-        string Password2 = "SdadaFsdyhgasGdfqwe";
-        string Password3 = "1234";
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int total = 0;
+            string password = "";
+
+            var Program = new Program();
+            Console.WriteLine(Program.SequentialLetters("aBcDe"));
+            Console.WriteLine(Program.SequentialLetters("aab22bbaabbaaba"));
+            Console.WriteLine(Program.SequentialLetters("!!"));
+            Console.WriteLine(Program.SequentialLetters("161513"));
+            Console.WriteLine(Program.SequentialLetters("ae"));
+
+            total += Program.NumberOfCharacters(password);
+            total += Program.CountUppercaseLetters(password);
+            total += Program.CountLowercaseLetters(password);
+            total += Program.CountNumbers(password);
+            total += Program.CountSymbols(password);
+            total += Program.CountMiddleSymbols(password);
+            total += Program.MeetsAllRequirements(password);
+            total -= Program.onlyLetters(password);
+            total -= Program.onlyNumbers(password);
+            total -= Program.checkRepeatCharacters(password);
         }
 
-        public int NumberOfCharacters(string password)
+            public int NumberOfCharacters(string password)
         {
             return (password.Length * 4);
         }
@@ -214,15 +230,32 @@ namespace PasswordStrengthChecker
             return dupes * 2;
         }
 
-
         public int SequentialLetters(string password)
         {
             int dupes = 0;
-            if(password.Length < 2)
+            if (password.Length < 2)
             {
                 return 0;
             }
+            else
+            {
+                byte[] asciiBytes = Encoding.ASCII.GetBytes(password);
 
+                for (int i = 0; i < password.Length - 1; i++)
+                {
+                    var tmp1 = asciiBytes[i];
+                    var tmp2 = asciiBytes[i+1];
+
+                    if (tmp1+1 == (tmp2))
+                    {
+                        dupes += 1;
+                    }
+                }
+
+                return dupes * 3;
+            }
+
+            /*
             //work out ascii value of each letter and increment it to check the next
             for (int i = 0; i < password.Length - 1; i++)
             {
@@ -231,7 +264,7 @@ namespace PasswordStrengthChecker
                     dupes += 1;
                 }
             }
-            return dupes * 2;
+            return dupes * 2;*/
         }
 
     }

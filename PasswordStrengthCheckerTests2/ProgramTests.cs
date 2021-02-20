@@ -188,5 +188,24 @@ namespace PasswordStrengthChecker.Tests
             Assert.AreEqual(0, test4);
             Assert.AreEqual(2, test5);
         }
+
+        [TestMethod()]
+        public void SequentialLettersTest()
+        {
+            var Program = new Program();
+            var test1 = Program.SequentialLetters("aB$%&cDe");
+            var test2 = Program.SequentialLetters("aab22bbaabbaaba");
+            var test3 = Program.SequentialLetters("!!");
+            var test4 = Program.SequentialLetters("161513");
+            var test5 = Program.SequentialLetters("aeretyfgh");
+            var test6 = Program.SequentialLetters("12369456");
+
+            Assert.AreEqual(6, test1);
+            Assert.AreEqual(9, test2);
+            Assert.AreEqual(0, test3);
+            Assert.AreEqual(0, test4);
+            Assert.AreEqual(6, test5);
+            Assert.AreEqual(12, test6);
+        }
     }
 }
