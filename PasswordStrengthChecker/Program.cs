@@ -32,9 +32,16 @@ namespace PasswordStrengthChecker
             total -= Program.checkRepeatCharacters(password);
         }
 
-            public int NumberOfCharacters(string password)
+        public int NumberOfCharacters(string password)
         {
-            return (password.Length * 4);
+            if (password.Length * 4 > 50)
+            {
+                return 50;
+            }
+            else
+            {
+                return (password.Length * 4);
+            }
         }
 
         public int CountUppercaseLetters(string password)
@@ -51,7 +58,14 @@ namespace PasswordStrengthChecker
             }
             else
             {
-                return (password.Length - count) * 2;
+                if (((password.Length - count) * 2) > 50)
+                {
+                    return 50;
+                }
+                else
+                {
+                    return (password.Length - count) * 2;
+                }
             }
         }
 
