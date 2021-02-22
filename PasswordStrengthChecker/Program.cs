@@ -34,9 +34,9 @@ namespace PasswordStrengthChecker
 
         public int NumberOfCharacters(string password)
         {
-            if (password.Length * 4 > 50)
+            if (password.Length * 4 > 100)
             {
-                return 50;
+                return 100;
             }
             else
             {
@@ -83,7 +83,14 @@ namespace PasswordStrengthChecker
             }
             else
             {
-                return (password.Length - count) * 2;
+                if (((password.Length - count) * 2) > 100)
+                {
+                    return 100;
+                }
+                else
+                {
+                    return (password.Length - count) * 2;
+                }
             }
         }
 
