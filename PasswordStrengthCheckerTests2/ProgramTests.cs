@@ -25,7 +25,7 @@ namespace PasswordStrengthChecker.Tests
             var Program = new Program();
             var test1 = Program.CountUppercaseLetters("123lowerUPPER");
             var test2 = Program.CountUppercaseLetters("aBcDe");
-            Assert.AreEqual(16, test1);
+            Assert.AreEqual(10, test1);
             Assert.AreEqual(6, test2);
         }
 

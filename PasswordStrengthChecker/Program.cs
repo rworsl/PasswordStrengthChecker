@@ -6,35 +6,76 @@ namespace PasswordStrengthChecker
 {
     public class Program
     {
-        int strengthScore = 0;
-
+        
         static void Main(string[] args)
         {
             int total = 0;
-            string password = "";
+            string password = "SullenCitadelTwiddlingCosigner";
 
             var Program = new Program();
-            Console.WriteLine(Program.SequentialLetters("aBcDe"));
-            Console.WriteLine(Program.SequentialLetters("aab22bbaabbaaba"));
-            Console.WriteLine(Program.SequentialLetters("!!"));
-            Console.WriteLine(Program.SequentialLetters("161513"));
-            Console.WriteLine(Program.SequentialLetters("ae"));
 
             total += Program.NumberOfCharacters(password);
+            //max 200
+            Console.WriteLine(Program.NumberOfCharacters(password));
+            
+            //max 400
             total += Program.CountUppercaseLetters(password);
+            Console.WriteLine(Program.CountUppercaseLetters(password));
+            
+            //max 100
             total += Program.CountLowercaseLetters(password);
+            Console.WriteLine(Program.CountLowercaseLetters(password));
+            
+            //max 50
             total += Program.CountNumbers(password);
+            Console.WriteLine(Program.CountNumbers(password));
+            
+            //max 50
             total += Program.CountSymbols(password);
+            Console.WriteLine(Program.CountSymbols(password));
+            
+            //max 50
             total += Program.CountMiddleSymbols(password);
+            Console.WriteLine(Program.CountMiddleSymbols(password));
             total += Program.MeetsAllRequirements(password);
+            
+            //max 10
+            Console.WriteLine(Program.MeetsAllRequirements(password));
             total -= Program.onlyLetters(password);
+            
+            //Max possible = 860
+
+
+            //max 200
+            Console.WriteLine(Program.onlyLetters(password));
             total -= Program.onlyNumbers(password);
+            
+            //max 200
+            Console.WriteLine(Program.onlyNumbers(password));
             total -= Program.checkRepeatCharacters(password);
+            
+            //max 50
+            Console.WriteLine(Program.checkRepeatCharacters(password));
+
+            //max 50
+            total -= Program.ConsecutiveUpperLetters(password);
+
+            //max 50
+            total -= Program.ConsecutiveLowerLetters(password);
+            
+            //max 50
+            total -= Program.ConsecutiveNumbers(password);
+
+            //max 50
+            Console.WriteLine(Program.SequentialLetters(password));
+
+
+            Console.WriteLine(total);
         }
 
         public int NumberOfCharacters(string password)
         {
-            if (password.Length * 4 > 100)
+            if (password.Length * 4 > 200)
             {
                 return 100;
             }
@@ -47,9 +88,9 @@ namespace PasswordStrengthChecker
         public int CountUppercaseLetters(string password)
         {
             int count = 0;
-            for (int i = 0; i < password.Length; i++)
+            foreach (char i in password)
             {
-                if (char.IsUpper(password[i])) count++;
+                if (char.IsUpper(i)) count += 1;
             }
 
             if (count == 0)
@@ -58,7 +99,7 @@ namespace PasswordStrengthChecker
             }
             else
             {
-                if (((password.Length - count) * 2) > 50)
+                if (((password.Length - count) * 2) > 400)
                 {
                     return 50;
                 }
@@ -101,7 +142,15 @@ namespace PasswordStrengthChecker
             {
                 if (char.IsDigit(password[i])) count++;
             }
-            return count * 4;
+            
+            if (count * 4 > 50)
+            {
+                return 50;
+            }
+            else
+            {
+                return count * 4;
+            }
         }
 
         public int CountSymbols(string password)
@@ -112,7 +161,14 @@ namespace PasswordStrengthChecker
                 if (char.IsLetterOrDigit(password[i])) count++;
             }
 
-            return (password.Length - count) * 6;
+            if (((password.Length - count) * 6) > 50)
+            {
+                return 50;
+            }
+            else
+            {
+                return (password.Length - count) * 6;
+            }
         }
 
         public int CountMiddleSymbols(string password)
@@ -131,7 +187,14 @@ namespace PasswordStrengthChecker
             var total = (password.Length - 2) - symbols;
             total += count;
 
-            return total * 2;
+            if (total * 2 > 50)
+            {
+                return 0;
+            }
+            else 
+            {
+                return total * 2;
+            }
         }
 
         public int MeetsAllRequirements(string password)
@@ -164,7 +227,14 @@ namespace PasswordStrengthChecker
         {
             if (((CountUppercaseLetters(password) / 2) + (CountLowercaseLetters(password) / 2)) == password.Length)
             {
-                return password.Length;
+                if (password.Length > 200)
+                {
+                    return 200;
+                }
+                else
+                {
+                    return password.Length;
+                }
             }
             else
             {
@@ -176,7 +246,14 @@ namespace PasswordStrengthChecker
         {
             if ((CountNumbers(password) / 4) == password.Length)
             {
-                return password.Length;
+                if (password.Length > 200)
+                {
+                    return 200;
+                }
+                else
+                {
+                    return password.Length;
+                }
             }
             else
             {
@@ -209,7 +286,14 @@ namespace PasswordStrengthChecker
 
             itemCount = empty.Count;
 
-            return itemCount * 2;
+            if (itemCount * 2 > 50)
+            {
+                return 50;
+            }
+            else
+            {
+                return itemCount * 2;
+            }
         }
 
         public int ConsecutiveUpperLetters(string password)
@@ -222,7 +306,15 @@ namespace PasswordStrengthChecker
                     dupes += 1;
                 }
             }
-            return dupes * 2;
+
+            if (dupes * 2 > 50)
+            {
+                return 50;
+            }
+            else
+            {
+                return dupes * 2;
+            }
         }
 
         public int ConsecutiveLowerLetters(string password)
@@ -235,7 +327,15 @@ namespace PasswordStrengthChecker
                     dupes += 1;
                 }
             }
-            return dupes * 2;
+
+            if (dupes * 2 > 50)
+            {
+                return 50;
+            }
+            else
+            {
+                return dupes * 2;
+            }
         }
 
         public int ConsecutiveNumbers(string password)
@@ -248,7 +348,15 @@ namespace PasswordStrengthChecker
                     dupes += 1;
                 }
             }
-            return dupes * 2;
+
+            if (dupes * 2 > 50)
+            {
+                return 50;
+            }
+            else
+            {
+                return dupes * 2;
+            }
         }
 
         public int SequentialLetters(string password)
@@ -273,7 +381,14 @@ namespace PasswordStrengthChecker
                     }
                 }
 
-                return dupes * 3;
+                if (dupes * 3 > 50)
+                {
+                    return 50;
+                }
+                else
+                {
+                    return dupes * 3;
+                }
             }
 
             /*
